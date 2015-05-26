@@ -1,5 +1,5 @@
-(ns holygrail.test-util
-  (:use [holygrail.core])
+(ns camelarius.test-util
+  (:use [camelarius.core])
   (:import [org.apache.camel.component.mock MockEndpoint]))
 
 (defn received-counter [end]

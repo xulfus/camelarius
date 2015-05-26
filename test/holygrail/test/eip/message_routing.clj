@@ -1,8 +1,8 @@
-(ns holygrail.test.eip.message-routing
-  (:use [holygrail.core]
+(ns camelarius.test.eip.message-routing
+  (:use [camelarius.core]
         [clojure.test]
         [midje.sweet]
-        [holygrail.test-util]))
+        [camelarius.test-util]))
 
 (facts "Content based router EIP"
   (fact "Content based router using choice"

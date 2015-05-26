@@ -1,8 +1,8 @@
-(ns holygrail.test.eip.messaging-systems
+(ns camelarius.test.eip.messaging-systems
   (:use [clojure.test]
-        [holygrail.core]
+        [camelarius.core]
         [midje.sweet]
-        [holygrail.test-util]))
+        [camelarius.test-util]))
 
 (facts "Message Channel EIP"
   (fact "message channel"
@@ -56,7 +56,7 @@
         (to "mock:c")
         (end))
 
-     (doseq [x '("a" "b" "c")]
+     (doseq [x ["a" "b" "c"]]
         ((make-producer context) "direct:source" x)
         (let [mock-dest (make-endpoint context (str "mock:" x))]
           (received-counter mock-dest) => 1

@@ -1,7 +1,7 @@
-(ns holygrail.test.core
+(ns camelarius.test.core
   (:use [clojure.test]
         [midje.sweet]
-        [holygrail.core]))
+        [camelarius.core]))
 
 (facts "Camel sanity checks"
 

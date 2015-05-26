@@ -1,6 +1,6 @@
-(ns holygrail.test.eip.messaging-channels
-  (:use [holygrail.core]
-        [holygrail.test-util]
+(ns camelarius.test.eip.messaging-channels
+  (:use [camelarius.core]
+        [camelarius.test-util]
         [clojure.test]
         [midje.sweet]))
 
@@ -61,10 +61,10 @@
 
       (defroute context
         (from "direct:source")
-        (to "file:/tmp/clj-camel-holygrail-tests"))
+        (to "file:/tmp/clj-camel-camelarius-tests"))
 
       (defroute context
-        (from "file:/tmp/clj-camel-holygrail-tests?move=.done")
+        (from "file:/tmp/clj-camel-camelarius-tests?move=.done")
         (pipeline)
         (to "mock:dest")
         (process (processor (countdown latch))))

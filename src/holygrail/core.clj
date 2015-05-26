@@ -1,4 +1,4 @@
-(ns holygrail.core
+(ns camelarius.core
   (:import [org.apache.camel Exchange]
            [org.apache.camel ExchangePattern]
            [org.apache.camel Processor]
@@ -23,7 +23,7 @@
            [org.apache.camel.component.jms JmsComponent]
            [org.apache.camel.util CamelLogger] )
   (:require [clojure.tools.logging :as log]
-            [holygrail.util :as util]))
+            [camelarius.util :as util]))
 
 (def http-uri-header (Exchange/HTTP_URI))
 (def http-path-header (Exchange/HTTP_PATH))

@@ -1,8 +1,8 @@
-(ns holygrail.test.eip.message-construction
+(ns camelarius.test.eip.message-construction
   (:use [midje.sweet]
         [clojure.test]
-        [holygrail.core]
-        [holygrail.test-util]))
+        [camelarius.core]
+        [camelarius.test-util]))
 
 (facts "Event Message EIP"
   (fact "event message from endpoint"

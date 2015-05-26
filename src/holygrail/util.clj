@@ -1,4 +1,4 @@
-(ns holygrail.util
+(ns camelarius.util
   (:use [clojure.string :only [lower-case join capitalize]]))
 
 (defn- to-camel-case [s]
