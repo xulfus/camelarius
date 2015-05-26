@@ -58,6 +58,7 @@
 
       (produce "direct:source" "foo")
 
+      (Thread/sleep 50)
       (received-counter mock-dest) => 1
       (received-counter mock-tap) => 1)))
   
