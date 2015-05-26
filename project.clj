@@ -10,11 +10,7 @@
                  [org.jboss.netty/netty "3.2.7.Final"]
                  [org.clojure/tools.logging "0.2.6"]]
   :source-paths ["src"]
-  :repositories {"snapshots" {:url "http://10.251.76.32:8081/nexus/content/repositories/snapshots"
-                              :username "admin" :password "admin123"}
-                 "releases" {:url "http://10.251.76.32:8081/nexus/content/repositories/releases"
-                             :username "admin" :password "admin123" }
-                 "thirdparty" {:url "http://10.251.76.32:8081/nexus/content/repositories/thirdparty"}}
+
   :lein-release {:deploy-via :shell
                  :shell ["./bin/release.sh"]}
   :profiles {:dev {:dependencies [[midje "1.5.1"]

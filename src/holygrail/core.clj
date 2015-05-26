@@ -84,20 +84,24 @@
   (ActiveMQComponent/activeMQComponent conn-str))
 
 ; helper functions
-(defn set-in-body [ex body]
+(defn set-in-body
   "Set the in message body"
+  [ex body]
   (.. ex (getIn) (setBody body)))
 
-(defn set-out-body [ex body]
+(defn set-out-body
   "Set the out message body"
+  [ex body]
   (.. ex (getOut) (setBody body)))
 
-(defn set-body [ex body]
+(defn set-body
   "Set the in message body"
+  [ex body]
   (set-in-body ex body))
 
-(defn get-body [ex]
+(defn get-body
   "get the message body as a string"
+  [ex]
   (.. ex (getIn) (getBody)))
 
 (defn set-header
