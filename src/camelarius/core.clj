@@ -18,9 +18,6 @@
            [org.apache.camel.model.language SimpleExpression]
            [org.apache.camel.impl DefaultProducerTemplate]
            [org.apache.camel.impl DefaultConsumerTemplate]
-           [org.apache.activemq.camel.component ActiveMQComponent]
-           [org.apache.camel.component.jms JmsConfiguration]
-           [org.apache.camel.component.jms JmsComponent]
            [org.apache.camel.util CamelLogger] )
   (:require [clojure.tools.logging :as log]
             [camelarius.util :as util]))
@@ -76,12 +73,6 @@
                    (configure []
                      (.errorHandler ~'this ~err-handler)
                      (.. ~'this ~@body))))))
-
-; components
-(defn activemq-component
-  "Create an ActiveMQComponent and add it to the context"
-  [conn-str]
-  (ActiveMQComponent/activeMQComponent conn-str))
 
 ; helper functions
 (defn set-in-body
