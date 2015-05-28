@@ -10,12 +10,12 @@
       (defroute context
         (from "direct:source")
         (choice)
-        (when (predicate (= (get-body ex) "a")))
-        (to "mock:a")
-        (when (predicate (= (get-body ex) "b")))
-        (to "mock:b")
-        (otherwise)
-        (to "mock:c")
+          (when (predicate (= (get-body ex) "a")))
+            (to "mock:a")
+          (when (predicate (= (get-body ex) "b")))
+            (to "mock:b")
+          (otherwise)
+            (to "mock:c")
         (end))
 
       (doseq [x ["a" "b" "c"]]
@@ -23,6 +23,33 @@
         (let [mock-dest (make-endpoint context (str "mock:" x))]
           (received-counter mock-dest) => 1
           (get-body (first (received-exchanges mock-dest))) => x)))))
+
+(facts "Multicast"
+  (fact "sequential multicast"
+    (let [context (make-context)
+          produce (make-producer context)]
+      (defroute context
+        (from "direct:source")
+        (multicast)
+        (to (into-array ["mock:a" "mock:b"])))
+
+      (produce "direct:source" "foo")
+
+      (received-counter (make-endpoint context "mock:a")) => 1
+      (received-counter (make-endpoint context "mock:b")) => 1))
+  (fact "parallel multicast"
+    (let [context (make-context)
+          produce (make-producer context)]
+      (defroute context
+        (from "direct:source")
+        (multicast)
+        (parallel-processing)
+        (to (into-array ["mock:a" "mock:b"])))
+
+      (produce "direct:source" "foo")
+
+      (received-counter (make-endpoint context "mock:a")) => 1
+      (received-counter (make-endpoint context "mock:b")) => 1))  )
 
 (facts "Message Filter EIP"
   (fact "Message filter on header"
