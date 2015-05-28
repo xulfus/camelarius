@@ -67,12 +67,12 @@
   "Creates a route from the provided context, error handler and body"
   [context & args]
   (let [[err-handler & body] (util/route-args args)
-        body (map util/java-method body)]
+        steps (map util/java-method body)]
     `(.addRoutes ~context
                  (proxy [RouteBuilder] []
                    (configure []
                      (.errorHandler ~'this ~err-handler)
-                     (.. ~'this ~@body))))))
+                     (.. ~'this ~@steps))))))
 
 ; helper functions
 (defn set-in-body
