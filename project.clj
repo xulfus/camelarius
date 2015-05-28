@@ -4,8 +4,6 @@
   :description "Apache Camel DSL in Clojure"
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [org.apache.camel/camel-core ~camel-version]
-                 [org.apache.camel/camel-jetty ~camel-version]
-                 [org.apache.camel/camel-jms ~camel-version]
                  [org.clojure/tools.logging "0.2.6"]]
   :source-paths ["src"]
 
