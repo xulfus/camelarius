@@ -46,8 +46,8 @@
     (fn [dest & {:keys [timeout]}]
 
       (if timeout
-          (.receiveBody consumer dest timeout)
-          (.receiveBodyNoWait consumer dest)))))
+        (.receiveBody consumer dest timeout)
+        (.receiveBodyNoWait consumer dest)))))
 
 (defn make-producer
   "Create and start a DefaultProducerTemplate"
@@ -133,15 +133,15 @@
 
 (defmacro dead-letter-channel [queue & body]
   (let [body (map util/java-method body)]
-   (if (empty? body)
-     `(DeadLetterChannelBuilder. ~queue)
-     `(.. (DeadLetterChannelBuilder. ~queue) ~@body))))
+    (if (empty? body)
+      `(DeadLetterChannelBuilder. ~queue)
+      `(.. (DeadLetterChannelBuilder. ~queue) ~@body))))
 
 (defmacro default-error-handler [& body]
   (let [body (map util/java-method body)]
-   (if (empty? body)
-     `(DefaultErrorHandlerBuilder.)
-     `(.. (DefaultErrorHandlerBuilder.) ~@body))))
+    (if (empty? body)
+      `(DefaultErrorHandlerBuilder.)
+      `(.. (DefaultErrorHandlerBuilder.) ~@body))))
 
 (defmacro expression
   "Create a new Expression with the forms provided as the evaluate method"
@@ -168,12 +168,12 @@
 
 (defmacro aggregation-strategy
   "Creates an instance of an aggregation strategy with forms provided as
-   the aggregate method"
+  the aggregate method"
   [& body]
   `(reify AggregationStrategy
-   (aggregate
-    [this a b]
-     ~@body)))
+     (aggregate
+       [this a b]
+       ~@body)))
 
 (defmacro processor
   "Creates a new impl of org.apache.camel.Processor with the
