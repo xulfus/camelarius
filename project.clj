@@ -1,4 +1,4 @@
-(defproject camelarius/camelarius "0.4.0" 
+(defproject camelarius/camelarius "0.4.1" 
   :description "Apache Camel DSL in Clojure"
   :license {:name "Eclipse Public License - v 1.0"
             :url "http://www.eclipse.org/legal/epl-v10.html"
