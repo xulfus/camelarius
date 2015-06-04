@@ -8,7 +8,7 @@ Forked from https://github.com/clumsyjedi/clj-camel-holygrail
 
 Camelarius (Latin) 'camel driver'
 
-Copyright (C) clumsyjedi (Frazer Irving), xulfus (Janne Haarni)
+Copyright &copy; clumsyjedi (Frazer Irving), xulfus (Janne Haarni)
 
 Distributed under the Eclipse Public License.
 
