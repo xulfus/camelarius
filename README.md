@@ -4,8 +4,6 @@ Forked from https://github.com/clumsyjedi/clj-camel-holygrail
 
 "The holy grail of Apache Camel DSLs in Clojure"
 
-[![Clojars Project](http://clojars.org/camelarius/latest-version.svg)](https://clojars.org/camelarius)
-
 Camelarius (Latin) 'camel driver'
 
 Copyright &copy; clumsyjedi (Frazer Irving), xulfus (Janne Haarni)
@@ -18,12 +16,16 @@ Distributed under the Eclipse Public License.
 
 ## Usage
 
+Latest version:
+
+[![Clojars Project](http://clojars.org/camelarius/latest-version.svg)](https://clojars.org/camelarius)
+
 Include in your project.clj:
 
 ```clojure
 (ns my.awesome.camel-project
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [camelarius "0.4.0"]])
+                 [camelarius "0.4.1"]])
 
 ```
 
