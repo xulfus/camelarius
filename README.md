@@ -40,5 +40,5 @@ Basic routing:
   ((make-producer context) "seda:source" "body"))
 ```
 
-See the tests for more examples.
+See the tests for more examples. Also some stuff in the wiki.
 
