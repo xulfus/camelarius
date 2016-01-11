@@ -39,7 +39,7 @@
       ((make-producer context) "direct:source" "msg")
       (let [mock-dest (make-endpoint context "mock:dest")]
         (received-counter mock-dest) => 1
-        (get-body (first (received-exchanges mock-dest))) => "abc"))))
+        (get-body (first (received-exchanges mock-dest)) String) => "abc"))))
 
 
 (facts "Message Router EIP"
