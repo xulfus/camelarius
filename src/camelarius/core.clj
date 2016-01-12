@@ -91,9 +91,11 @@
   (set-in-body ex body))
 
 (defn get-body
-  "get the message body as a string"
-  [ex]
-  (.. ex (getIn) (getBody)))
+  "Get the message body"
+  ([ex]
+    (.. ex (getIn) (getBody)))
+  ([ex clazz]
+    (.. ex (getIn) (getBody clazz))))
 
 (defn set-header
   "Useful for setting state inside processors"
