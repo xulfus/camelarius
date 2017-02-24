@@ -58,7 +58,7 @@
                       :or {exchange-pattern in-only headers {}}}]
       (if (= in-only exchange-pattern)
         (.sendBodyAndHeaders producer dest body (zipmap (map name (keys headers)) (vals headers)))
-        (.requestBody producer dest body (.class Object))))))
+        (.requestBody producer dest body)))))
 
 (defn make-endpoint [context url]
   (.getEndpoint context url))
