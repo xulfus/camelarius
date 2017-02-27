@@ -25,7 +25,7 @@ Include in your project.clj:
 ```clojure
 (ns my.awesome.camel-project
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [camelarius "0.4.1"]])
+                 [camelarius "0.4.2"]])
 
 ```
 
@@ -41,4 +41,3 @@ Basic routing:
 ```
 
 See the tests for more examples. Also some stuff in the wiki.
-
