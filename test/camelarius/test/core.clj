@@ -29,3 +29,36 @@
     (let [result (produce "direct:test-out" 1 :exchange-pattern in-out)]
       (fact "produce in-out and route"
             result => 2))))
+
+(facts "Camel send with headers"
+
+       (let [context (make-context)
+             produce (make-producer context)
+             headers (atom {})]
+         (defroute context
+                   :err-handler (default-error-handler)
+                   (from "direct:test-headers")
+                   (process (processor
+                              (swap! headers #(into % (get-headers ex))))))
+         (produce "direct:test-headers" "body"
+                  :headers {:operationName "doFoo"}
+                  :exchange-pattern in-only)
+         (fact "produce and route with headers"
+               (get @headers "operationName") => "doFoo")))
+
+(facts "Camel request with headers"
+
+       (let [context (make-context)
+             produce (make-producer context)
+             headers (atom {})]
+         (defroute context
+                   :err-handler (default-error-handler)
+                   (from "direct:test-out-headers")
+                   (process (processor
+                              (swap! headers #(into % (get-headers ex))))))
+         (let [result (produce "direct:test-out-headers" "body"
+                               :headers {:operationName "doFoo"}
+                               :exchange-pattern in-out)]
+           (fact "produce in-out and route with headers"
+                 result => "body"
+                 (get @headers "operationName") => "doFoo"))))

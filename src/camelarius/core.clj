@@ -56,9 +56,10 @@
     (.start producer)
     (fn [dest body & {:keys [exchange-pattern headers]
                       :or {exchange-pattern in-only headers {}}}]
-      (if (= in-only exchange-pattern)
-        (.sendBodyAndHeaders producer dest body (zipmap (map name (keys headers)) (vals headers)))
-        (.requestBody producer dest body)))))
+      (let [headers (zipmap (map name (keys headers)) (vals headers))]
+        (if (= in-only exchange-pattern)
+          (.sendBodyAndHeaders producer dest body headers)
+          (.requestBodyAndHeaders producer dest body headers))))))
 
 (defn make-endpoint [context url]
   (.getEndpoint context url))
